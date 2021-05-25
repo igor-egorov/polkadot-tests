@@ -13,10 +13,6 @@ find_package(kagome REQUIRED CONFIG)
 hunter_add_package(soralog)
 find_package(soralog REQUIRED CONFIG)
 
-
-message(STATUS "Found kagome: ${kagome_INCLUDE_DIRS}")
-message(STATUS "Found soralog: ${soralog_FOUND} ${soralog_LIBRARIES}")
-
 # the deps below are required to be listed despite kagome enumerates them too
 find_package(Boost REQUIRED random filesystem program_options)
 find_package(leveldb REQUIRED)

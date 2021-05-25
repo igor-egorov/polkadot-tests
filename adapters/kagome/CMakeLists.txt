@@ -17,6 +17,13 @@
 
 cmake_minimum_required(VERSION 3.12)
 
+find_program(CCACHE_FOUND ccache)
+if (CCACHE_FOUND)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+endif (CCACHE_FOUND)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Setup toolchain (required by kagome and libp2p)
 set(CMAKE_TOOLCHAIN_FILE
@@ -39,14 +46,9 @@ set(
 
 # Setup hunter
 include(cmake/HunterGate.cmake)
-# HunterGate(
-#   URL https://github.com/soramitsu/soramitsu-hunter/archive/tags/v0.23.257-soramitsu7.tar.gz
-#   SHA1 24f3cae2b6b3212b87daf643cdaad0f9afc1b54b
-#   FILEPATH "${CMAKE_SOURCE_DIR}/cmake/HunterConfig.cmake"
-# )
 HunterGate(
-    URL  https://github.com/soramitsu/soramitsu-hunter/archive/v0.23.257-soramitsu8.tar.gz
-    SHA1 28d49d1f46d2e42b235efbaae8c26b24ce714ef0
+    URL  https://github.com/soramitsu/soramitsu-hunter/archive/v0.23.257-soramitsu9.tar.gz
+    SHA1 c0a8929426b9d9ae663388c8343184cfc6321086
     FILEPATH "${CMAKE_SOURCE_DIR}/cmake/HunterConfig.cmake"
 )
 

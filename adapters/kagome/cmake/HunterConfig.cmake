@@ -21,13 +21,6 @@ hunter_config(kagome
   CMAKE_ARGS TESTING=OFF
 )
 
-hunter_config(soralog
-    URL  "https://github.com/igor-egorov/soralog/archive/0e2882f82857c59f49394083fffaf4a6c52b6bcf.tar.gz"
-    SHA1 "0785cf125d861677b970734bade6cecf04898d97"
-    CMAKE_ARGS TESTING=OFF EXAMPLES=OFF EXPOSE_MOCKS=ON
-    KEEP_PACKAGE_SOURCES
-    )
-
 # Extend local hunter config with kagome's settings
 include(
   ${CMAKE_SOURCE_DIR}/../../hosts/kagome/cmake/Hunter/config.cmake
